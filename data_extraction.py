@@ -3,11 +3,17 @@ load_dotenv()
 from woocommerce import API
 import os
 
+url="https://shop-staging.ilkeczane.com"
+if os.environ["ENV"] in ["PRODUCTION","TESTING"]:
+  url="https://shop.ilkeczane.com"
+    
+
+
 wcapi= API(
-        url="https://shop-staging.ilkeczane.com",
+        url=url,
         consumer_key=os.getenv("WOOCOMMERCE_API_KEY"),
         consumer_secret=os.getenv("WOOCOMMERCE_API_SECRET_KEY"),
-        timeout=50
+        version="wc/v3",
 )
 
 category_data={
@@ -37,8 +43,8 @@ product_data = {
 }
 
 
-response=wcapi.get("product")
-print(response)
+response=wcapi.get("products")
+print(response.json())
 
 
 
