@@ -1,10 +1,12 @@
-
+from dotenv import load_dotenv
+load_dotenv()
 from woocommerce import API
+import os
 
 wcapi= API(
-        url="https://shop-staging.ilkeczane.com/",
-        consumer_key="ck_2c044dfc1270fe58a29037abcfb4d94685328737",
-        consumer_secret="cs_225059c9d99c62e3cc9671d463103183c1f63080",
+        url="https://shop-staging.ilkeczane.com",
+        consumer_key=os.getenv("WOOCOMMERCE_API_KEY"),
+        consumer_secret=os.getenv("WOOCOMMERCE_API_SECRET_KEY"),
         timeout=50
 )
 
