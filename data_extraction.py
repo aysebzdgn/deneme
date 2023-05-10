@@ -2,6 +2,7 @@ from dotenv import load_dotenv
 load_dotenv()
 from woocommerce import API
 import os
+import json
 
 url="https://shop-staging.ilkeczane.com"
 if os.environ["ENV"] in ["PRODUCTION","TESTING"]:
@@ -44,9 +45,17 @@ product_data = {
 
 
 response=wcapi.get("products")
-print(response.json())
+response_ls=response.json()
 
+#print(json.dumps(response_ls, indent = 4, sort_keys=True))
 
+#print(type(response_ls))
+for i in range(len(response_ls)):
+   id=response_ls[i]["id"]
+   name=response_ls[i]["name"]
+   price=response_ls[i]["price"]
+   print(f"{id} , {name} : {price}")  
+      
 
 
 
