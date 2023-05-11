@@ -54,7 +54,12 @@ for i in range(len(response_ls)):
    id=response_ls[i]["id"]
    name=response_ls[i]["name"]
    price=response_ls[i]["price"]
-   print(f"{id} , {name} : {price}")  
+   result=f"{id} , {name} : {price}"
+   print(result) 
+   
+  
+dosya=open("data.txt","w")
+dosya.writelines(result)
       
 
 
