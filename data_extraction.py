@@ -50,16 +50,24 @@ response_ls=response.json()
 #print(json.dumps(response_ls, indent = 4, sort_keys=True))
 
 #print(type(response_ls))
+dosya=open("data.txt","w")
 for i in range(len(response_ls)):
    id=response_ls[i]["id"]
    name=response_ls[i]["name"]
    price=response_ls[i]["price"]
    result=f"{id} , {name} : {price}"
    print(result) 
-   
-  
-dosya=open("data.txt","w")
-dosya.writelines(result)
+   dosya.writelines(result)
+dosya.close()  
+
+
+with open("data-2.txt","wb") as f:
+   f.write(b"a")
+
+
+
+X = input("a")
+print("tamam")
       
 
 
