@@ -1,5 +1,12 @@
+import requests
+
+
+
 class Downloader:
-    ...
+    def download(self):
+        response=requests.get(self.url)
+        with open("download.txt","wb") as f:
+            f.write(response.content)
 
 if __name__ == "__main__":
     d = Downloader(save_to_location="downloads")
