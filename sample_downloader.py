@@ -33,7 +33,8 @@ if __name__ == "__main__":
     d2.download(url = 'https://www.kayserieo.org.tr/dosyalar/image/uresim/havan-5.jpg',file_name="6.jpg")
     #d3.download(url = 'https://www.kayserieo.org.tr/dosyalar/image/uresim/havan-5.jpg',file_name="7.jpg")
     
-    # print(f"İndirilen son dosyanın boyutu 1: {len(d1.last_content)}")
+    print("len getattribute",len(Downloader.__getattribute__(d2,"last_content")))
+    
     print(f"İndirilen son dosyanın boyutu 2: {len(d2.last_content)}")
     print(hasattr(d2,"last_content"))
     lc = getattr(d2,"last_content")
